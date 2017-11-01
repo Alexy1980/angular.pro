@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FavoriteChangedEventArgs} from "./favorite/favorite.component";
+// import { FavoriteChangedEventArgs} from "./favorite/favorite.component";
 
 
 @Component({
@@ -8,12 +8,16 @@ import { FavoriteChangedEventArgs} from "./favorite/favorite.component";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  post = {
+
+  viewMode = 'somethingElse';
+  /*post = {
     title: 'Angular app',
     isFavorite: true
   };
 
-  onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
+  courses = [1, 2, 3, 4];*/
+
+  /*onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log("Favorite changed!!!", eventArgs);
-  }
+  }*/
 }
