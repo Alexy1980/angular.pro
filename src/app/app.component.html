@@ -1,25 +1,28 @@
 <!--<h1>Hello!!!</h1>
 <courses></courses>
-<app-favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>-->
-<!--<app-panel>
+<app-favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>
+<app-panel>
   <ng-container class="heading">Heading</ng-container>
   <div class="body">
     <h2>Body</h2>
     <p>Content...</p>
   </div>
 </app-panel>-->
-
-<!--<div *ngIf="courses.length > 0; then coursesList else noCourses">
-
-</div>
-<ng-template #coursesList>
+<!--<button (click)="loadCourses()">Load</button>
+<div *ngIf="courses.length > 0">
   list of courses
+</div>
+<ng-template [ngIf]="courses.length > 0">
+  <li *ngFor="let course of courses; trackBy: trackCourse">
+    {{ course.name }}
+    <button (click)="onChange(course)">Remove</button>
+  </li>
 </ng-template>
-<ng-template #noCourses>
+<ng-template [ngIf]="!(courses.length > 0)">
   Нету ничего!!!
 </ng-template>-->
 
-<ul class="nav nav-pills">
+<!--<ul class="nav nav-pills">
   <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map view</a></li>
   <li [class.active]="viewMode == 'list'"><a (click)="viewMode = 'list'">List view</a></li>
 </ul>
@@ -28,3 +31,15 @@
   <div *ngSwitchCase="'list'">List view content</div>
   <div *ngSwitchDefault>Otherwise!!!</div>
 </div>
+<br>
+<button (click)="loadCourses()">Load</button>
+<ul>
+  <li *ngFor="let course of courses; trackBy: trackCourse">
+    {{ course.name }}
+    &lt;!&ndash;<button (click)="onChange(course)">Remove</button>&ndash;&gt;
+  </li>
+</ul>-->
+
+<!--input-format-->
+
+<input type="text" [appInputFormat]="'uppercase'">
