@@ -1,0 +1,26 @@
+<form [formGroup]="form">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input
+            formControlName="username"
+            id="username"
+            type="text"
+            class="form-control">
+      <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+        <div *ngIf="username.errors.required">Имя пользователя обязательно!</div>
+        <div *ngIf="username.errors.minlength">Имя пользователя не может содержать менее {{ username.errors.minlength.requiredLength }} символов!</div>
+        <div *ngIf="username.errors.maxlength">Имя пользователя не может содержать более {{ username.errors.maxlength.requiredLength }} символов!</div>
+        <div *ngIf="username.errors.pattern">Имя пользователя не соответствует шаблону!</div>
+        <div *ngIf="username.errors.cannotContainSpace">Имя пользователя не должно содержать пробелы!</div>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input
+            formControlName="password"
+            id="password"
+            type="text"
+            class="form-control">
+    </div>
+    <button class="btn btn-primary" type="submit">Sign Up</button>
+</form>
