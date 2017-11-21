@@ -12,6 +12,7 @@
         <div *ngIf="username.errors.maxlength">Имя пользователя не может содержать более {{ username.errors.maxlength.requiredLength }} символов!</div>
         <div *ngIf="username.errors.pattern">Имя пользователя не соответствует шаблону!</div>
         <div *ngIf="username.errors.cannotContainSpace">Имя пользователя не должно содержать пробелы!</div>
+        <div *ngIf="username.errors.shouldBeUnique">Имя пользователя не может быть mosh!</div>
       </div>
     </div>
     <div class="form-group">
