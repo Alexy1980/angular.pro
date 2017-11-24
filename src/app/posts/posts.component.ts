@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from "../services/post.service";
+import {AppError} from "../common/validators/app-error";
+import {NotFoundError} from "../common/validators/not-found-error";
+import {BadInput} from "../common/validators/bad-input";
 
 
 @Component({
@@ -32,7 +35,16 @@ export class PostsComponent implements OnInit {
     .subscribe(response => {
       post['id'] = response.json().id;
       this.posts.splice(0, 0, post);
-    });
+    },
+      (error: AppError) => {
+        if (error instanceof BadInput) {
+          // this.form.setErrors(error.originalError);
+        }
+        else {
+          alert('Неизхвестная ошибка создания!');
+          console.log(error);
+        }
+      });
   }
   // обновление записи
   updatePost(post) {
@@ -47,6 +59,14 @@ export class PostsComponent implements OnInit {
     .subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
-    });
+    },
+        (error: AppError) => {
+        if (error instanceof NotFoundError)
+          alert('Статья уже удалена!');
+        else {
+          alert('Неизхвестная ошибка удаления!');
+          console.log(error);
+        }
+      });
   }
 }
